@@ -4,8 +4,8 @@ Cookiecutter CMD2 Basic Project
 
 Cookiecutter_ template for a Python package.
 
-* GitHub repo: https://github.com/audreyfeldroy/cookiecutter-pypackage/
-* Documentation: https://cookiecutter-pypackage.readthedocs.io/
+* GitHub repo: https://github.com/jayrod/cookiecutter-python-cmd2/
+* Documentation: COMING SOON
 * Free software: BSD license
 
 Features
@@ -27,7 +27,7 @@ Cookiecutter 1.4.0 or higher)::
 
 Generate a Python package project::
 
-    cookiecutter https://github.com/audreyfeldroy/cookiecutter-pypackage.git
+    cookiecutter https://github.com/jayrod/cookiecutter-python-cmd2.git
 
 Then:
 
@@ -58,8 +58,7 @@ I also accept pull requests on this, if they're small, atomic, and if they
 make my own packaging experience better.
 
 
-.. _Tox: http://testrun.org/tox/
+.. _Nox: https://nox.thea.codes/en/stable/
 .. _Sphinx: http://sphinx-doc.org/
 .. _bump2version: https://github.com/c4urself/bump2version
-.. _Poetry: https://python-poetry.org/
 .. _PyPi: https://pypi.python.org/pypi
