@@ -1,0 +1,14 @@
+{
+  "full_name": "Github User",
+  "email": "voxebeg454@example.com",
+  "github_username": "example_user",
+  "project_name": "Python Boilerplate CMD2",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "Command line tool.",
+  "command_name": "cmd2",
+  "pypi_username": "{{ cookiecutter.github_username }}",
+  "version": "0.1.0",
+  "use_pytest": "n",
+  "create_author_file": "y",
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
+}
