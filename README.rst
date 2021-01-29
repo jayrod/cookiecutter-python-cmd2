@@ -12,7 +12,7 @@ Features
 --------
 
 * Testing setup with ``unittest`` and ``python setup.py test`` or ``pytest``
-* Tox_ testing: Setup to easily test for Python 3.5, 3.6, 3.7, 3.8
+* Nox_ testing: Setup to easily test for Python 3.5, 3.6, 3.7, 3.8
 * bump2version_: Pre-configured version bumping with a single command
 
 .. _Cookiecutter: https://github.com/cookiecutter/cookiecutter
