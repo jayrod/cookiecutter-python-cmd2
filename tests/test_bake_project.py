@@ -48,4 +48,3 @@ def test_bake_without_author_file(cookies):
     ) as result:
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'AUTHORS.rst' not in found_toplevel_files
-

@@ -11,3 +11,14 @@ if not re.match(MODULE_REGEX, module_name):
 
     #Exit to cancel project
     sys.exit(1)
+    
+    
+PROJECT_NAME_REGEX = r'^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$'
+
+project_name = '{{ cookiecutter.project_name }}'
+
+if not re.match(PROJECT_NAME_REGEX, project_name, re.IGNORECASE ):
+    print(f'ERROR: The project name ({project_name}) is not a valid Python project name.') 
+
+    #Exit to cancel project
+    sys.exit(1)
