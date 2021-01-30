@@ -16,6 +16,9 @@ import argparse
 
 import cmd2
 
+{% if cookiecutter.create_banner == 'y' -%}
+from {{cookiecutter.project_slug}}.common.screen import banner
+{% endif %}
 
 class App(cmd2.Cmd):
     """A simple cmd2 application."""
@@ -24,6 +27,11 @@ class App(cmd2.Cmd):
         shortcuts = cmd2.DEFAULT_SHORTCUTS
         shortcuts.update({'&': 'speak'})
         super().__init__(multiline_commands=['orate'], shortcuts=shortcuts)
+
+        {% if cookiecutter.create_banner == 'y' -%}
+        #set banner
+        self.intro = banner()
+        {% endif %}
 
         # Make maxrepeats settable at runtime
         self.maxrepeats = 3
