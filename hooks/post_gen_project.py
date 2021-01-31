@@ -2,7 +2,6 @@
 import os
 from glob import iglob
 from pathlib import Path
-import isort
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
@@ -46,6 +45,3 @@ if __name__ == '__main__':
     #rename chosen file to app.py
     [os.rename(str(f), str(f.parent.joinpath('app.py'))) for f in python_files if f.stem == chosen_app_example]
 
-    #run isort on generated python files
-    search_str = Path(PROJECT_DIRECTORY).joinpath('**/*.py')
-    [isort.file(f) for f in iglob(str(search_str), recursive=True)]
