@@ -1,6 +1,6 @@
-======================
+
 Cookiecutter CMD2 Basic Project 
-======================
+-------------------------------
 
 Cookiecutter_ template for a Python package.
 
@@ -36,8 +36,8 @@ Then:
 * Add a ``requirements.txt`` file that specifies the packages you will need for
   your project and their versions. For more info see the `pip docs for requirements files`_.
 
+[![asciicast](https://asciinema.org/a/388246.svg)](https://asciinema.org/a/388246)
 
-[![asciicast](https://asciinema.org/a/14.png)](https://asciinema.org/a/14)
 
 Not Exactly What You Want?
 --------------------------
