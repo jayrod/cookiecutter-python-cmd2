@@ -32,6 +32,19 @@ if __name__ == '__main__':
             common_files[0].unlink()
             common_files[0].parent.rmdir()
 
+    #remove sample application files not chosen by user
+    chosen_app_example = '{{ cookiecutter.cmd2_example }}'
+    all_possible_examples = ['first_app', 'arg_decorators', 'environment']
+
+    search_str = Path(PROJECT_DIRECTORY).joinpath('**/*.py')
+    python_files = [Path(f) for f in iglob(str(search_str), recursive=True)
+                 if Path(f).stem in all_possible_examples]
+                    
+    #remove all files that weren't chosen
+    [f.unlink() for f in python_files if f.stem != chosen_app_example]
+   
+    #rename chosen file to app.py
+    [os.rename(str(f), str(f.parent.joinpath('app.py'))) for f in python_files if f.stem == chosen_app_example]
 
     #run isort on generated python files
     search_str = Path(PROJECT_DIRECTORY).joinpath('**/*.py')
