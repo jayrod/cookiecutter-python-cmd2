@@ -25,8 +25,6 @@ Cookiecutter 1.4.0 or higher)::
 
     pip install -U cookiecutter
 
-    pip install isort
-
 Generate a Python package project::
 
     cookiecutter https://github.com/jayrod/cookiecutter-python-cmd2.git
