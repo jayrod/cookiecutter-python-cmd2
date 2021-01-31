@@ -6,6 +6,6 @@ from pathlib import Path
 def lint(session):
     session.install('isort')
     session.install('black')
-    session.run('isort', '.')
+    session.run('isort', 'src')
     session.run('black', 'src')
     
