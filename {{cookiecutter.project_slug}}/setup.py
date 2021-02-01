@@ -155,7 +155,7 @@ setup(
     # projects.
     extras_require={  # Optional
         'dev': ['check-manifest'],
-        'test': ['coverage'],
+        'test': ['cmd2-ext-test'],
     },
 
     # To provide executable scripts, use entry points in preference to the

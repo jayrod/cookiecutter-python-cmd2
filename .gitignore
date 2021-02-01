@@ -142,4 +142,7 @@ dmypy.json
 # profiling data
 .prof
 
+#generated app
+pythonboilerplatecmd2
+
 # End of https://www.toptal.com/developers/gitignore/api/python
