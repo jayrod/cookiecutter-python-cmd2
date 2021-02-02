@@ -15,7 +15,7 @@ Features
 * Nox_ testing: Setup to easily test for Python 3.5, 3.6, 3.7, 3.8
 * bump2version_: Pre-configured version bumping with a single command
 
-.. _Cookiecutter: https://github.com/cookiecutter/cookiecutter
+[Cookiecutter](https://github.com/cookiecutter/cookiecutter)
 
 Quickstart
 ----------
@@ -61,7 +61,7 @@ I also accept pull requests on this, if they're small, atomic, and if they
 make my own packaging experience better.
 
 
-.. _Nox: https://nox.thea.codes/en/stable/
-.. _Sphinx: http://sphinx-doc.org/
-.. _bump2version: https://github.com/c4urself/bump2version
-.. _PyPi: https://pypi.python.org/pypi
+[Nox](https://nox.thea.codes/en/stable/)
+[Sphinx](http://sphinx-doc.org/)
+[bump2version](https://github.com/c4urself/bump2version)
+[PyPi](https://pypi.python.org/pypi)
