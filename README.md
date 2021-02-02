@@ -60,7 +60,7 @@ Or Submit a Pull Request
 I also accept pull requests on this, if they're small, atomic, and if they
 make my own packaging experience better.
 
-* [Nox] (https://nox.thea.codes/en/stable/)
-* [Sphinx] (http://sphinx-doc.org/)
-* [bump2version] (https://github.com/c4urself/bump2version)
-* [PyPi] (https://pypi.python.org/pypi)
+* [Nox](https://nox.thea.codes/en/stable/)
+* [Sphinx](http://sphinx-doc.org/)
+* [bump2version](https://github.com/c4urself/bump2version)
+* [PyPi](https://pypi.python.org/pypi)
