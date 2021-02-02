@@ -1,10 +1,12 @@
 """ Entry point of cmd2 application """
 from {{cookiecutter.project_slug}}.app import App
 
+{% if cookiecutter.cmd2_example == 'internal_plugin' -%}
 import pluginlib
+{% endif %}
 
 def main():
-    {% if cookiecutter.cmd2_example == 'internal_plugin' %}
+    {% if cookiecutter.cmd2_example == 'internal_plugin' -%}
     #load plugins
     loader = pluginlib.PluginLoader(modules=['{{ cookiecutter.project_slug }}.plugins'])
     plugins = loader.plugins
@@ -12,7 +14,7 @@ def main():
     my_sets = [o() for o in plugins.CommandSets.values()]
 
     c = App(command_sets=my_sets)
-    {% else %}
+    {% else -%}
     c = App()
-    {% endif %}
+    {% endif -%}
     c.cmdloop()
