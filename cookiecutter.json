@@ -12,5 +12,5 @@
   "create_author_file": "y",
   "create_banner": "y",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
-  "cmd2_example": ["first_app", "environment", "arg_decorators"]
+  "cmd2_example": ["first_app", "environment", "arg_decorators","internal_plugin"]
 }

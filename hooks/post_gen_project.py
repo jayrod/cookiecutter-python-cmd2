@@ -2,6 +2,7 @@
 import os
 from glob import iglob
 from pathlib import Path
+from shutil import rmtree
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
@@ -33,7 +34,7 @@ if __name__ == '__main__':
 
     #remove sample application files not chosen by user
     chosen_app_example = '{{ cookiecutter.cmd2_example }}'
-    all_possible_examples = ['first_app', 'arg_decorators', 'environment']
+    all_possible_examples = ['first_app', 'arg_decorators', 'environment', 'internal_plugin']
 
     search_str = Path(PROJECT_DIRECTORY).joinpath('**/*.py')
     python_files = [Path(f) for f in iglob(str(search_str), recursive=True)
@@ -45,3 +46,9 @@ if __name__ == '__main__':
     #rename chosen file to app.py
     [os.rename(str(f), str(f.parent.joinpath('app.py'))) for f in python_files if f.stem == chosen_app_example]
 
+    #remove plugin directory if the cmd example is not internal_plugin
+    if 'internal_plugin' not in chosen_app_example:
+        plugin_dir_search = Path(PROJECT_DIRECTORY).joinpath('**/plugins')
+        [rmtree(d) for d in iglob(str(plugin_dir_search), recursive=True)]
+        base_plugin_search = Path(PROJECT_DIRECTORY).joinpath('**/base_plugin.py')
+        [Path(d).unlink() for d in iglob(str(base_plugin_search), recursive=True)]

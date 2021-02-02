@@ -43,6 +43,23 @@ def test_bake_with_defaults(cookies):
         assert 'tests' in found_toplevel_files
         assert 'LICENSE' in found_toplevel_files
 
+
+def test_bake_non_internal_plugin_example(cookies):
+    with bake_in_temp_dir(
+            cookies,
+            extra_context={'cmd2_example': 'first_app'}
+        ) as result:
+
+        #there should be no plugin directory
+        plugins_search = Path(result.project).joinpath('**/plugins')
+        plugins = [f for f in iglob(str(plugins_search), recursive=True)]
+        assert not plugins
+
+        #there shouldn't be a base_plugin file
+        search = Path(result.project).joinpath('**/base_plugin.py')
+        base_plugin = [f for f in iglob(str(search), recursive=True)]
+        assert not base_plugin
+
 def test_bake_without_author_file(cookies):
     with bake_in_temp_dir(
         cookies,
@@ -50,7 +67,6 @@ def test_bake_without_author_file(cookies):
     ) as result:
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'AUTHORS.rst' not in found_toplevel_files
-
 def test_bake_without_banner(cookies):
     with bake_in_temp_dir(
         cookies,
@@ -70,4 +86,3 @@ def test_bake_without_banner(cookies):
         app_file_content = files[0].read_text()
         assert 'self.intro' not in app_file_content
         assert 'import banner' not in app_file_content
-        
