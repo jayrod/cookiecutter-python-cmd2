@@ -45,7 +45,7 @@ Not Exactly What You Want?
 Don't worry, you have options:
 
 Fork This / Create Your Own
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------
 
 If you have differences in your preferred setup, I encourage you to fork this
 to create your own version. Or create your own; it doesn't strictly have to
@@ -55,13 +55,12 @@ be a fork.
   you think sounds good.
 
 Or Submit a Pull Request
-~~~~~~~~~~~~~~~~~~~~~~~~
+----------
 
 I also accept pull requests on this, if they're small, atomic, and if they
 make my own packaging experience better.
 
-
-[Nox](https://nox.thea.codes/en/stable/)
-[Sphinx](http://sphinx-doc.org/)
-[bump2version](https://github.com/c4urself/bump2version)
-[PyPi](https://pypi.python.org/pypi)
+* [Nox] (https://nox.thea.codes/en/stable/)
+* [Sphinx] (http://sphinx-doc.org/)
+* [bump2version] (https://github.com/c4urself/bump2version)
+* [PyPi] (https://pypi.python.org/pypi)
