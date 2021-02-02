@@ -41,6 +41,7 @@ def test_bake_with_defaults(cookies):
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'setup.py' in found_toplevel_files
         assert 'tests' in found_toplevel_files
+        assert 'LICENSE' in found_toplevel_files
 
 def test_bake_without_author_file(cookies):
     with bake_in_temp_dir(
