@@ -2,20 +2,20 @@
 Cookiecutter CMD2 Basic Project 
 -------------------------------
 
-Cookiecutter_ template for a Python package.
+[Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a Python CMD2 application.
 
 * GitHub repo: https://github.com/jayrod/cookiecutter-python-cmd2/
 * Documentation: COMING SOON
 * Free software: BSD license
 
-Features
+Features of generated Application
 --------
 
-* Testing setup with ``unittest`` and ``python setup.py test`` or ``pytest``
-* Nox_ testing: Setup to easily test for Python 3.5, 3.6, 3.7, 3.8
-* bump2version_: Pre-configured version bumping with a single command
+* Functional testing examples using [cmd2-ext-test](https://github.com/python-cmd2/cmd2-ext-test) vi pytest
+* Nox lint via isort and black
+* bump2version : Pre-configured version bumping with a single command
 
-[Cookiecutter](https://github.com/cookiecutter/cookiecutter)
+
 
 Quickstart
 ----------
@@ -29,12 +29,7 @@ Generate a Python package project::
 
     cookiecutter https://github.com/jayrod/cookiecutter-python-cmd2.git
 
-Then:
 
-* Create a repo and put it there.
-* Install the dev requirements into a virtualenv. (``pip install -r requirements_dev.txt``)
-* Add a ``requirements.txt`` file that specifies the packages you will need for
-  your project and their versions. For more info see the `pip docs for requirements files`_.
 
 [![asciicast](https://asciinema.org/a/388246.svg)](https://asciinema.org/a/388246)
 
@@ -45,7 +40,7 @@ Not Exactly What You Want?
 Don't worry, you have options:
 
 Fork This / Create Your Own
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------
 
 If you have differences in your preferred setup, I encourage you to fork this
 to create your own version. Or create your own; it doesn't strictly have to
@@ -55,13 +50,12 @@ be a fork.
   you think sounds good.
 
 Or Submit a Pull Request
-~~~~~~~~~~~~~~~~~~~~~~~~
+----------
 
 I also accept pull requests on this, if they're small, atomic, and if they
 make my own packaging experience better.
 
-
-[Nox](https://nox.thea.codes/en/stable/)
-[Sphinx](http://sphinx-doc.org/)
-[bump2version](https://github.com/c4urself/bump2version)
-[PyPi](https://pypi.python.org/pypi)
+* [Nox](https://nox.thea.codes/en/stable/)
+* [Sphinx](http://sphinx-doc.org/)
+* [bump2version](https://github.com/c4urself/bump2version)
+* [PyPi](https://pypi.python.org/pypi)
