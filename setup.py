@@ -9,7 +9,6 @@ setup(
     author='Jerrad Anderson',
     license='BSD',
     author_email='waggishgargery@protonmail.com'
-    url='',
     keywords=['cookiecutter', 'template', 'package', 'cmd2'],
     python_requires='>=3.5',
     classifiers=[

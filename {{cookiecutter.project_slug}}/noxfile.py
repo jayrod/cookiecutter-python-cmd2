@@ -9,3 +9,7 @@ def lint(session):
     session.run('isort', 'src')
     session.run('black', 'src')
     
+@nox.session(python=False)
+def test(session):
+    session.install('pytest')
+    session.run('pytest')
