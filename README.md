@@ -29,6 +29,15 @@ Generate a Python package project::
 
     cookiecutter https://github.com/jayrod/cookiecutter-python-cmd2.git
 
+Options
+-------
+
+| Field        | Default                  | Description                                                                            |
+|--------------|--------------------------|----------------------------------------------------------------------------------------|
+| full_name    | Github User              | Used to describe the auther of this application.                                       |
+| email        | voxebeg454@example.com   | How to get in touch with the author.                                                   |
+| project_name | PythonBoilerplateCMD2    | This is the application name used during installation and in the README docutmentation |
+| project_slug | {sanitized project_name} | Name of the python package                                                             |
 
 
 [![asciicast](https://asciinema.org/a/388246.svg)](https://asciinema.org/a/388246)
