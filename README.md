@@ -47,6 +47,10 @@ Options
 | open_source_license | MIT license| Lets you choose a license structure|
 | cmd2_example |  first_app | Allows for choice of several startup cmd2 examples|
 
+
+Screencast
+----------
+
 [![asciicast](https://asciinema.org/a/388246.svg)](https://asciinema.org/a/388246)
 
 
