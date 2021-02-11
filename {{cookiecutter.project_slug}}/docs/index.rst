@@ -11,7 +11,9 @@ Welcome to {{cookiecutter.project_name}}'s documentation!
    :caption: Contents:
 
    readme_link
-
+   {% if cookiecutter.create_author_file == 'y' -%}
+   author_link
+   {% endif %}
 
 Indices and tables
 ==================

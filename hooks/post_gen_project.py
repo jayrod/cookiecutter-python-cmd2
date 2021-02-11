@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     if '{{ cookiecutter.create_author_file }}' != 'y':
         remove_file('AUTHORS.rst')
+        remove_file(str(Path('docs').joinpath('author_link.rst')))
 
     if '{{ cookiecutter.create_banner}}' != 'y':
         search_str = Path(PROJECT_DIRECTORY).joinpath('**/common/screen.py')
