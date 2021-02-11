@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = '{{cookiecutter.project_name}}'
-copyright = '2021, {{cookiecutter.author}}'
-author = '{{cookiecutter.author}}'
+copyright = '2021, {{cookiecutter.full_name}}'
+author = '{{cookiecutter.full_name}}'
 
 
 # -- General configuration ---------------------------------------------------
