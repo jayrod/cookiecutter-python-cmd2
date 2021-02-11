@@ -8,6 +8,8 @@ PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 
 def remove_file(filepath):
+    if not Path(filepath).exists:
+        return
     os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
