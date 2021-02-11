@@ -38,7 +38,14 @@ Options
 | email        | voxebeg454@example.com   | How to get in touch with the author.                                                   |
 | project_name | PythonBoilerplateCMD2    | This is the application name used during installation and in the README docutmentation |
 | project_slug | {sanitized project_name} | Name of the python package                                                             |
-
+| project_short_description| "Command Line Tool" | Short project description|
+| command_name | cmd2 | command name used for invocation after installation|
+| version | 0.1.0   | Initial software version |
+| use_pytest |  yes   | Adds sample pytests |
+| create_author_file |  yes   | Adds given full_name to an Author file|
+| create_banner | yes   | Creates a placeholder banner |
+| open_source_license | MIT license| Lets you choose a license structure|
+| cmd2_example |  first_app | Allows for choice of several startup cmd2 examples|
 
 [![asciicast](https://asciinema.org/a/388246.svg)](https://asciinema.org/a/388246)
 
