@@ -15,6 +15,14 @@ def remove_file(filepath):
 
 if __name__ == '__main__':
 
+
+    if '{{ cookiecutter.use_sphinx }}' != 'y':
+        #all doc files
+        doc_files_search = Path(PROJECT_DIRECTORY, 'docs', '**')
+        [Path(f).unlink for f in iglob(str(doc_files_search.joinpath('*.*')), recursive=True)]
+        #remove doc directory
+        rmtree(str(Path(PROJECT_DIRECTORY, 'docs')))
+
     if '{{ cookiecutter.create_author_file }}' != 'y':
         remove_file('AUTHORS.rst')
         remove_file(str(Path('docs').joinpath('author_link.rst')))

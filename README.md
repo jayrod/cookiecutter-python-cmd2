@@ -44,6 +44,7 @@ Options
 | use_pytest |  yes   | Adds sample pytests |
 | create_author_file |  yes   | Adds given full_name to an Author file|
 | create_banner | yes   | Creates a placeholder banner |
+| use_sphinx | yes   | Adds sphinx autodocumentation support |
 | open_source_license | MIT license| Lets you choose a license structure|
 | cmd2_example |  first_app | Allows for choice of several startup cmd2 examples|
 
