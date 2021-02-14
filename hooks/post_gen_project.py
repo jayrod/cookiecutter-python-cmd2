@@ -15,6 +15,14 @@ def remove_file(filepath):
 
 if __name__ == '__main__':
 
+    #Erase github workflows directory if not wanted
+    if '{{ cookiecutter.use_github_workflow }}' != 'y':
+        #all yml files
+        github_folder = Path(PROJECT_DIRECTORY, '.github', '**')
+        [Path(f).unlink for f in iglob(str(github_folder.joinpath('*.yml')), recursive=True)]
+        #remove doc directory
+        rmtree(str(Path(PROJECT_DIRECTORY, '.github')))
+
 
     if '{{ cookiecutter.use_sphinx }}' != 'y':
         #all doc files
