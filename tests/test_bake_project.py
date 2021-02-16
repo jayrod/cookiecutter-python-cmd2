@@ -29,7 +29,8 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
     try:
         yield result
     finally:
-        rmtree(str(result.project))
+        if result.project:
+            rmtree(str(result.project))
 
 
 def test_bake_with_defaults(cookies):
@@ -50,6 +51,10 @@ def test_bake_non_internal_plugin_example(cookies):
             extra_context={'cmd2_example': 'first_app'}
         ) as result:
 
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
         #there should be no plugin directory
         plugins_search = Path(result.project).joinpath('**/plugins')
         plugins = [f for f in iglob(str(plugins_search), recursive=True)]
@@ -65,13 +70,24 @@ def test_bake_without_author_file(cookies):
         cookies,
         extra_context={'create_author_file': 'n'}
     ) as result:
+
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'AUTHORS.rst' not in found_toplevel_files
+
 def test_bake_without_banner(cookies):
     with bake_in_temp_dir(
         cookies,
         extra_context={'create_banner': 'n'}
     ) as result:
+
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
         #screen file should not have been generated
         search_str = Path(result.project.dirname).joinpath('**/common/screen.py')
         files = [f for f in iglob(str(search_str), recursive=True)]
@@ -86,3 +102,21 @@ def test_bake_without_banner(cookies):
         app_file_content = files[0].read_text()
         assert 'self.intro' not in app_file_content
         assert 'import banner' not in app_file_content
+
+def test_bake_no_nox(cookies):
+    with bake_in_temp_dir(
+        cookies,
+        extra_context={'use_nox': 'n'}
+    ) as result:
+        
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
+        #noxfile.py should not be in root folder
+        nox_file = Path(result.project).joinpath('noxfile.py')
+        assert nox_file.exists() == False
+
+        makefile_content = Path(result.project).joinpath('Makefile').read_text()
+        assert 'nox' not in makefile_content
+     

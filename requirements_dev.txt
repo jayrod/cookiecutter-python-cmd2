@@ -10,8 +10,10 @@ packaging==20.8
 pluggy==0.13.1
 py==1.10.0
 pyparsing==2.4.7
-pytest==6.2.2
 six==1.15.0
 toml==0.10.2
 virtualenv==20.4.0
 isort==5.7.0
+
+cookiecutter>=1.4.0
+pytest-cookies==0.4.0

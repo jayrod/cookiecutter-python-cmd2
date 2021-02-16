@@ -7,7 +7,9 @@ help:
 	{% if cookiecutter.use_pytest == 'y' -%}
 	@echo "test         - run tests quickly with the default Python"
 	{% endif -%}
+	{% if cookiecutter.use_nox == 'y' -%}
 	@echo "test-all     - run tests on every Python version with nox"
+	{% endif -%}
 	@echo "dist         - package"
 	@echo "install      - install the package to the active Python's site-packages"
 
@@ -28,16 +30,18 @@ clean-pyc:
 	find . -name '__pycache__' -exec rm -fr {} +
 
 clean-test:
+{% if cookiecutter.use_nox == 'y' -%}
 	rm -rf .nox/
-
+{% endif %}
 {% if cookiecutter.use_pytest == 'y' -%}
 test:
 	pytest
 {% endif %}
 
+{% if cookiecutter.use_nox == 'y' -%}
 test-all:
 	nox -s test
-
+{% endif %}
 
 dist: clean
 	python setup.py sdist

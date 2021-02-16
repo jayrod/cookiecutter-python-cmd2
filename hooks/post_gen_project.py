@@ -23,6 +23,8 @@ if __name__ == '__main__':
         #remove doc directory
         rmtree(str(Path(PROJECT_DIRECTORY, '.github')))
 
+    if '{{ cookiecutter.use_nox }}' != 'y':
+        remove_file('noxfile.py')
 
     if '{{ cookiecutter.use_sphinx }}' != 'y':
         #all doc files
