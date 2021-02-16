@@ -4,6 +4,9 @@ help:
 	@echo "clean        - remove all build, test, coverage and Python artifacts"
 	@echo "clean-build  - remove build artifacts"
 	@echo "clean-pyc    - remove Python file artifacts"
+	{% if cookiecutter.use_sphinx == 'y' -%}
+	@echo "docs - generate Sphinx HTML documentation, including API docs"
+	{% endif -%}
 	{% if cookiecutter.use_pytest == 'y' -%}
 	@echo "test         - run tests quickly with the default Python"
 	{% endif -%}
@@ -29,8 +32,8 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-clean-test:
 {% if cookiecutter.use_nox == 'y' -%}
+clean-test:
 	rm -rf .nox/
 {% endif %}
 {% if cookiecutter.use_pytest == 'y' -%}
@@ -41,6 +44,11 @@ test:
 {% if cookiecutter.use_nox == 'y' -%}
 test-all:
 	nox -s test
+{% endif %}
+
+{% if cookiecutter.use_sphinx == 'y' -%}
+docs:
+	sphinx-build docs docs/_build
 {% endif %}
 
 dist: clean

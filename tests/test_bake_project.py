@@ -120,3 +120,17 @@ def test_bake_no_nox(cookies):
         makefile_content = Path(result.project).joinpath('Makefile').read_text()
         assert 'nox' not in makefile_content
      
+def test_bake_no_sphinx(cookies):
+    with bake_in_temp_dir(
+        cookies,
+        extra_context={'use_sphinx': 'n'}
+    ) as result:
+        
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
+        makefile_content = Path(result.project).joinpath('Makefile').read_text()
+        assert 'Sphinx' not in makefile_content
+        assert 'sphinx' not in makefile_content
+     
