@@ -7,5 +7,5 @@ class DefaultSettings:
 
         # Make maxrepeats settable at runtime
         app.maxrepeats = 3
-        app.add_settable(cmd2.Settable('maxrepeats', int, 'max repetitions for speak command'))
+        app.add_settable(Settable('maxrepeats', int, 'max repetitions for speak command'))
 
