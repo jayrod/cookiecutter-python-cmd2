@@ -45,26 +45,6 @@ def test_bake_with_defaults(cookies):
         assert 'LICENSE' in found_toplevel_files
 
 
-def test_bake_non_internal_plugin_example(cookies):
-    with bake_in_temp_dir(
-            cookies,
-            extra_context={'cmd2_example': 'first_app'}
-        ) as result:
-
-        assert result.project.isdir()
-        assert result.exit_code == 0
-        assert result.exception is None
-
-        #there should be no plugin directory
-        plugins_search = Path(result.project).joinpath('**/plugins')
-        plugins = [f for f in iglob(str(plugins_search), recursive=True)]
-        assert not plugins
-
-        #there shouldn't be a base_plugin file
-        search = Path(result.project).joinpath('**/base_plugin.py')
-        base_plugin = [f for f in iglob(str(search), recursive=True)]
-        assert not base_plugin
-
 def test_bake_without_author_file(cookies):
     with bake_in_temp_dir(
         cookies,

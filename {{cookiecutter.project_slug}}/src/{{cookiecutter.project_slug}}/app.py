@@ -39,10 +39,7 @@ class App(cmd2.Cmd):
         DefaultSettings.add_default_settings(self)
         {% endif %}
 
-        # Make maxrepeats settable at runtime
-        self.maxrepeats = 3
-        self.add_settable(cmd2.Settable('maxrepeats', int, 'max repetitions for speak command'))
-
+      
     speak_parser = argparse.ArgumentParser()
     speak_parser.add_argument('-p', '--piglatin', action='store_true', help='atinLay')
     speak_parser.add_argument('-s', '--shout', action='store_true', help='N00B EMULATION MODE')

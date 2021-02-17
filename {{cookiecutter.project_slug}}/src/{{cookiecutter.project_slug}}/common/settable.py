@@ -5,12 +5,7 @@ class DefaultSettings:
     @classmethod
     def add_default_settings(self, app: Cmd):
 
-        app.some_setting = 'Change this default setting'
-
-        app.add_settable(
-                    Settable('some_setting',
-                        str, 
-                        'Setting description'
-                        )
-                )
+        # Make maxrepeats settable at runtime
+        app.maxrepeats = 3
+        app.add_settable(cmd2.Settable('maxrepeats', int, 'max repetitions for speak command'))
 
