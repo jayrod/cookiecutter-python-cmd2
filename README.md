@@ -46,7 +46,6 @@ Options
 | create_banner | yes   | Creates a placeholder banner |
 | use_sphinx | yes   | Adds sphinx autodocumentation support |
 | open_source_license | MIT license| Lets you choose a license structure|
-| cmd2_example |  first_app | Allows for choice of several startup cmd2 examples|
 
 
 Screencast

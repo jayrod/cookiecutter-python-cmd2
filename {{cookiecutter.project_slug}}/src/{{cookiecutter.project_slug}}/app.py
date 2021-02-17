@@ -12,29 +12,31 @@ A simple application using cmd2 which demonstrates 8 key features:
     * Multiline Commands
     * History
 """
-import argparse
 
+import argparse
 import cmd2
-from cmd2 import with_argparser, with_category, CommandSet
 {% if cookiecutter.create_banner == 'y' -%}
 from {{cookiecutter.project_slug}}.common.screen import banner
 {% endif %}
-
-
-from typing import Optional, Iterable
+{% if cookiecutter.default_settings == 'y' -%}
+from {{cookiecutter.project_slug}}.common.settable import DefaultSettings
+{% endif %}
 
 class App(cmd2.Cmd):
     """A simple cmd2 application."""
 
-    def __init__(self, command_sets: Optional[Iterable[CommandSet]] = None):
-
+    def __init__(self):
         shortcuts = cmd2.DEFAULT_SHORTCUTS
         shortcuts.update({'&': 'speak'})
-        super().__init__(multiline_commands=['orate'], shortcuts=shortcuts, command_sets=command_sets)
+        super().__init__(multiline_commands=['orate'], shortcuts=shortcuts)
 
         {% if cookiecutter.create_banner == 'y' -%}
         #set banner
         self.intro = banner()
+        {% endif %}
+        {% if cookiecutter.default_settings == 'y' -%}
+        #add default settings
+        DefaultSettings.add_default_settings(self)
         {% endif %}
 
         # Make maxrepeats settable at runtime

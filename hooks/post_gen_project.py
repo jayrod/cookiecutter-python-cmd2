@@ -52,24 +52,3 @@ if __name__ == '__main__':
         if common_files[0].name == '__init__.py':
             common_files[0].unlink()
             common_files[0].parent.rmdir()
-
-    #remove sample application files not chosen by user
-    chosen_app_example = '{{ cookiecutter.cmd2_example }}'
-    all_possible_examples = ['first_app', 'arg_decorators', 'environment', 'internal_plugin']
-
-    search_str = Path(PROJECT_DIRECTORY).joinpath('**/*.py')
-    python_files = [Path(f) for f in iglob(str(search_str), recursive=True)
-                 if Path(f).stem in all_possible_examples]
-                    
-    #remove all files that weren't chosen
-    [f.unlink() for f in python_files if f.stem != chosen_app_example]
-   
-    #rename chosen file to app.py
-    [os.rename(str(f), str(f.parent.joinpath('app.py'))) for f in python_files if f.stem == chosen_app_example]
-
-    #remove plugin directory if the cmd example is not internal_plugin
-    if 'internal_plugin' not in chosen_app_example:
-        plugin_dir_search = Path(PROJECT_DIRECTORY).joinpath('**/plugins')
-        [rmtree(d) for d in iglob(str(plugin_dir_search), recursive=True)]
-        base_plugin_search = Path(PROJECT_DIRECTORY).joinpath('**/base_plugin.py')
-        [Path(d).unlink() for d in iglob(str(base_plugin_search), recursive=True)]
