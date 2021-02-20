@@ -17,36 +17,34 @@ import argparse
 import cmd2
 {% if cookiecutter.create_banner == 'y' -%}
 from {{cookiecutter.project_slug}}.common.screen import banner
-{% endif %}
+{% endif -%}
 {% if cookiecutter.default_settings == 'y' -%}
 from {{cookiecutter.project_slug}}.common.settable import DefaultSettings
-{% endif %}
+{% endif -%}
+from {{cookiecutter.project_slug}}.app_cmd_args import ParserFactory
+from typing import Optional, Iterable
+from cmd2 import CommandSet
 
 class App(cmd2.Cmd):
     """A simple cmd2 application."""
 
-    def __init__(self):
+    def __init__(self, command_sets: Optional[Iterable[CommandSet]] = None):
         shortcuts = cmd2.DEFAULT_SHORTCUTS
         shortcuts.update({'&': 'speak'})
-        super().__init__(multiline_commands=['orate'], shortcuts=shortcuts)
+        super().__init__(multiline_commands=['orate'], shortcuts=shortcuts, command_sets=command_sets)
 
         {% if cookiecutter.create_banner == 'y' -%}
         #set banner
         self.intro = banner()
-        {% endif %}
+        {% endif -%}
         {% if cookiecutter.default_settings == 'y' -%}
         #add default settings
         DefaultSettings.add_default_settings(self)
         {% endif %}
 
-      
-    speak_parser = argparse.ArgumentParser()
-    speak_parser.add_argument('-p', '--piglatin', action='store_true', help='atinLay')
-    speak_parser.add_argument('-s', '--shout', action='store_true', help='N00B EMULATION MODE')
-    speak_parser.add_argument('-r', '--repeat', type=int, help='output [n] times')
-    speak_parser.add_argument('words', nargs='+', help='words to say')
 
-    @cmd2.with_argparser(speak_parser)
+
+    @cmd2.with_argparser(ParserFactory.parser('speak_parser'))
     def do_speak(self, args):
         """Repeats what you tell me to."""
         words = []
@@ -60,6 +58,9 @@ class App(cmd2.Cmd):
         for _ in range(min(repetitions, self.maxrepeats)):
             # .poutput handles newlines, and accommodates output redirection too
             self.poutput(' '.join(words))
+
+        #always set the last result 
+        self.last_result = ' '.join(words)
 
     # orate is a synonym for speak which takes multiline input
     do_orate = do_speak
