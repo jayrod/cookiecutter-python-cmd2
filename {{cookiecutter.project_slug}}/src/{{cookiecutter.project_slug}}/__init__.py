@@ -4,13 +4,10 @@ from pluginlib import PluginLoader
 
 def main():
 
+    #Load plugins from internal module
     loader = PluginLoader(modules=['{{cookiecutter.project_slug}}.plugins'])
-    plugins = loader.plugins
-
-    if 'CommandSets' not in plugins.keys():
-        my_sets = []
-    else:
-        my_sets = [o() for o in plugins.CommandSets.values()]
+    #because autoload is set to True by default plugins are loaded
+    loader.plugins
 
     c = App()
     c.cmdloop()

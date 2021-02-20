@@ -22,16 +22,15 @@ from {{cookiecutter.project_slug}}.common.screen import banner
 from {{cookiecutter.project_slug}}.common.settable import DefaultSettings
 {% endif -%}
 from {{cookiecutter.project_slug}}.app_cmd_args import ParserFactory
-from typing import Optional, Iterable
-from cmd2 import CommandSet
+from cmd2 import Settable
 
 class App(cmd2.Cmd):
     """A simple cmd2 application."""
 
-    def __init__(self, command_sets: Optional[Iterable[CommandSet]] = None):
+    def __init__(self):
         shortcuts = cmd2.DEFAULT_SHORTCUTS
         shortcuts.update({'&': 'speak'})
-        super().__init__(multiline_commands=['orate'], shortcuts=shortcuts, command_sets=command_sets)
+        super().__init__(multiline_commands=['orate'], shortcuts=shortcuts)
 
         {% if cookiecutter.create_banner == 'y' -%}
         #set banner
@@ -42,7 +41,9 @@ class App(cmd2.Cmd):
         DefaultSettings.add_default_settings(self)
         {% endif %}
 
-
+        self.maxrepeats
+        self.add_settable(Settable('maxrepeats', int, 'Max repetitions for speak command'
+            ))
 
     @cmd2.with_argparser(ParserFactory.parser('speak_parser'))
     def do_speak(self, args):
