@@ -7,5 +7,5 @@ help:
 clean:
 	rm -rf pythonboilerplatecmd2
 
-bake:
+bake: clean
 	cookiecutter $(BAKE_OPTIONS) . --overwrite-if-exists
